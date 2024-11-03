@@ -5,13 +5,14 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-copy">
-          <h1 class="hero-title mt-0">{{main.title}}</h1>
-          <p class="hero-paragraph">{{main.description}}</p>
+          <h1 class="hero-title mt-0">{{story.title}}</h1>
+          <p class="text-sm date">{{story.date}}</p>
+          <p class="hero-paragraph">{{story.content}}</p>
           <div class="hero-cta">
-            <a class="button button-primary" href="{% url 'solidapp:inspire' %}"
-              >Inspire artists</a
-            ><a class="button" href="{% url 'solidapp:getInspired' %}"
-              >Get inspired</a
+            <a
+              class="button button-primary"
+              href="{% url 'solidapp:getInspired' %}"
+              >Back to stories</a
             >
           </div>
         </div>
@@ -55,38 +56,6 @@
             class="hero-figure-box hero-figure-box-10"
             data-rotation="-50deg"
           ></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="features section">
-    <div class="container">
-      <div class="features-inner section-inner has-bottom-divider">
-        <div class="features-wrap">
-          {% for feature in features %}
-          <div class="feature text-center is-revealing">
-            <div class="feature-inner">
-              <div class="feature-icon">
-                <img
-                  src="{% static 'images/feature-icon-' %}{{ feature.id }}.svg"
-                  alt="Feature {{ feature.id }}"
-                />
-              </div>
-              <h4 class="feature-title mt-24">{{feature.title}}</h4>
-              <p class="text-sm mb-0">{{feature.feature}}</p>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="pricing section">
-    <div class="container-sm">
-      <div class="pricing-inner section-inner">
-        <div class="pricing-header text-center">
-          <h2 class="section-title mt-0">{{about.title}}</h2>
-          <p class="section-paragraph mb-0">{{about.description}}</p>
         </div>
       </div>
     </div>

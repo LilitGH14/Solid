@@ -7,13 +7,6 @@
         <div class="hero-copy">
           <h1 class="hero-title mt-0">{{main.title}}</h1>
           <p class="hero-paragraph">{{main.description}}</p>
-          <div class="hero-cta">
-            <a class="button button-primary" href="{% url 'solidapp:inspire' %}"
-              >Inspire artists</a
-            ><a class="button" href="{% url 'solidapp:getInspired' %}"
-              >Get inspired</a
-            >
-          </div>
         </div>
         <div class="hero-figure anime-element">
           <svg
@@ -62,31 +55,22 @@
   <section class="features section">
     <div class="container">
       <div class="features-inner section-inner has-bottom-divider">
-        <div class="features-wrap">
-          {% for feature in features %}
-          <div class="feature text-center is-revealing">
-            <div class="feature-inner">
-              <div class="feature-icon">
-                <img
-                  src="{% static 'images/feature-icon-' %}{{ feature.id }}.svg"
-                  alt="Feature {{ feature.id }}"
-                />
+        <h4 class="feature-title text-center">{{main.section_title}}</h4>
+        <p class="text-center">{{main.section_description}}</p>
+        <div class="feature-wrapper">
+          <h4 class="feature-title text-center">{{stories.title}}</h4>
+          <div class="features-wrap">
+            {% for feature in stories.data %}
+            <div class="feature text-center is-revealing">
+              <div class="feature-inner">
+                <h4 class="feature-title mt-24">{{feature.title}}</h4>
+                <p class="text-sm date">{{feature.date}}</p>
+                <p class="text-md">{{feature.content}}</p>
+                <a href="{% url 'solidapp:story' feature.id %}">Read More →</a>
               </div>
-              <h4 class="feature-title mt-24">{{feature.title}}</h4>
-              <p class="text-sm mb-0">{{feature.feature}}</p>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="pricing section">
-    <div class="container-sm">
-      <div class="pricing-inner section-inner">
-        <div class="pricing-header text-center">
-          <h2 class="section-title mt-0">{{about.title}}</h2>
-          <p class="section-paragraph mb-0">{{about.description}}</p>
         </div>
       </div>
     </div>
